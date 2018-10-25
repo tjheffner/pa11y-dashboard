@@ -11,3 +11,7 @@ RUN apt-get install -y git
 
 # clone the dashboard repo, install deps
 RUN cd / && git clone -b remove-pa11y-deps --single-branch https://github.com/tjheffner/vue-pa11y.git app && cd app && npm install
+
+WORKDIR /app
+
+ENTRYPOINT ["dumb-init", "--"]
